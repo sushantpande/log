@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: history-server
+spec:
+  capacity:
+    storage: 5G
+  accessModes:
+  - ReadWriteMany
+  claimRef:
+    namespace: default 
+    name: history-server-claim
+  nfs:
+    path: /exports
+    server: 10.44.4.210

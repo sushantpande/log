@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: spark-logs-jx 
+spec:
+  capacity:
+    storage: 1G
+  accessModes:
+  - ReadWriteMany
+  claimRef:
+    namespace: default
+    name: spark-logs-claim
+  nfs:
+    path: /exports
+    server: 10.44.4.210
